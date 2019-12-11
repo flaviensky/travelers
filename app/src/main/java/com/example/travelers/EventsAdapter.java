@@ -42,7 +42,8 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsHolder> {
                 events.add(new Events(
                         fields.getString("id"),
                         fields.getString("title"),
-                        fields.getString("category")));
+                        fields.getString("category"),
+                        fields.getString("cover_url")));
             }
         }catch (JSONException e){
             e.printStackTrace();

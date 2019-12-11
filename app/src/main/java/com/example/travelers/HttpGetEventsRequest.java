@@ -29,7 +29,7 @@ public class HttpGetEventsRequest extends AsyncTask<String, Void, String> {
 
         try{
             //URL
-            URL url = new URL("https://opendata.paris.fr/api/records/1.0/search/?dataset=que-faire-a-paris-&rows=20");
+            URL url = new URL("https://opendata.paris.fr/api/records/1.0/search/?dataset=que-faire-a-paris-&rows=50");
 
             //Connection
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
