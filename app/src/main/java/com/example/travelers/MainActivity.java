@@ -2,6 +2,7 @@ package com.example.travelers;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,11 +30,11 @@ public class MainActivity extends AppCompatActivity implements OnItemClicked{
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.item1:
-                        Toast.makeText(getApplicationContext(), "Item 1", Toast.LENGTH_SHORT).show();
+                        loadFragment(new ListFragment());
                         return true;
 
                     case R.id.item2:
-                        Toast.makeText(getApplicationContext(), "Item 2", Toast.LENGTH_SHORT).show();
+                        loadFragment(new ProfileFragment());
                         return true;
                 }
                 return false;
@@ -53,6 +54,18 @@ public class MainActivity extends AppCompatActivity implements OnItemClicked{
                         false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(eventsAdapter);
+    }
+
+    private boolean loadFragment(Fragment fragment) {
+        //switching fragment
+        if (fragment != null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.frame_container, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
     }
 
     @Override
