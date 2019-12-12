@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         listFragment.setArguments(bundle);
         loadFragment(listFragment);
 
-        profileFragment= new ProfileFragment();
+        profileFragment = new ProfileFragment();
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
