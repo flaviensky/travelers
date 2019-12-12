@@ -3,7 +3,11 @@ package com.example.travelers;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class DetailsActivity extends AppCompatActivity {
 
@@ -18,5 +22,13 @@ public class DetailsActivity extends AppCompatActivity {
 
         title.setText(event.getTitle());
         category.setText(event.getCategory());
+
+        FloatingActionButton backButton = findViewById(R.id.button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }
