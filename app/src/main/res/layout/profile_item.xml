@@ -21,10 +21,10 @@
         />
 
     <TextView
-        android:text="aze"
         android:background="@android:color/white"
         android:textSize="25sp"
         android:textStyle="italic"
+        android:text="TextPreview_1"
         android:textColor="@android:color/black"
         android:textAlignment="center"
         android:id="@+id/tv_first_name"
@@ -49,10 +49,10 @@
         android:paddingBottom="20sp"/>
 
     <TextView
-        android:text="test"
         android:textSize="25sp"
         android:background="@android:color/white"
         android:textStyle="italic"
+        android:text="TextPreview_2"
         android:textColor="@android:color/black"
         android:textAlignment="center"
         android:id="@+id/tv_birthday"
