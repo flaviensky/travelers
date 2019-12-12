@@ -11,11 +11,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HttpGetEventsRequest extends AsyncTask<String, Void, String> {
 
     private final static String TAG = HttpGetEventsRequest.class.getSimpleName();
     private OnRequestsCompleted mOnRequestsCompleted;
+    private List<Events> eventsList;
 
     HttpGetEventsRequest(OnRequestsCompleted onRequestsCompleted){
         mOnRequestsCompleted = onRequestsCompleted;
@@ -73,5 +76,27 @@ public class HttpGetEventsRequest extends AsyncTask<String, Void, String> {
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
         mOnRequestsCompleted.getEvents(s);
+        eventsList = new ArrayList<>();
+        
+        try{
+            JSONArray jsonArray = new JSONArray(s);
+
+
+
+            for(int i = 0; i < jsonArray.length(); i++ ){
+
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                JSONObject fields = jsonObject.getJSONObject("fields");
+
+                eventsList.add(new Events(
+                        fields.getString("id"),
+                        fields.getString("title"),
+                        fields.getString("category"),
+                        fields.getString("cover_url")));
+            }
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
     }
 }

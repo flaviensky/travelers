@@ -31,7 +31,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsHolder> {
         eventsList = new ArrayList<>();
 
         try{
-            JSONArray jsonArray = new JSONArray(result);
+                JSONArray jsonArray = new JSONArray(result);
 
 
 

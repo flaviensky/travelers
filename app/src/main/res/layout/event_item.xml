@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="20sp"
-    android:outlineAmbientShadowColor="@android:color/black"
-    android:background="@android:color/holo_blue_light">
+    android:padding="5sp"
+
+    android:background="@android:color/darker_gray">
 
 
 

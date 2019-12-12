@@ -13,6 +13,8 @@ public class SplashActivity extends AppCompatActivity implements OnRequestsCompl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+
+
         new HttpGetEventsRequest(this).execute();
 
     }
