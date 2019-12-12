@@ -27,7 +27,7 @@ public class SplashActivity extends AppCompatActivity implements OnRequestsCompl
                     new GetEventsDatabase(getApplicationContext(), SplashActivity.this).execute();
                 }
             }
-        }, 300);
+        }, 2000);
     }
 
     @Override
