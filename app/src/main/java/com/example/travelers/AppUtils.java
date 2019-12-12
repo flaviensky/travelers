@@ -23,7 +23,7 @@ public class AppUtils {
                 "Juppé",
                 "15/08/1945",
                 "alain.juppe@gmail.com",
-                "+33 601020304",
+                "+33 6 01 02 03 04",
                 "https://www.bordeaux.fr/images/ebx/fr/eluCM/1730/format4/cJUPPE_1.jpg"));
 
         return userList;
