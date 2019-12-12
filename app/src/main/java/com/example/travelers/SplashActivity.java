@@ -18,7 +18,11 @@ public class SplashActivity extends AppCompatActivity implements OnRequestsCompl
 
         final EventsDao eventsDao = AppDatabase.getInstance(getApplicationContext()).getEventsDao();
 
-        new HttpGetEventsRequest(this).execute();
+        if (AppUtils.isNetworkAvailable(getApplicationContext())){
+            new HttpGetEventsRequest(SplashActivity.this).execute();
+        }else{
+            new GetEventsDatabase(getApplicationContext(), SplashActivity.this).execute();
+        }
 
     }
 
