@@ -5,29 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="20sp"
-    android:padding="1sp"
+    android:padding="5sp"
 
-    android:background="@android:color/black">
+    android:background="#ab710f"
 
+    >
 
 
     <ImageView
         android:id="@+id/iv_cover"
-        android:background="@android:color/white"
+        android:background="#072e1d"
         android:src="@drawable/ic_launcher_background"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:padding="10sp"
+
         />
 
     <TextView
         android:text="@string/app_name"
-        android:background="@android:color/white"
-        android:textColor="@android:color/black"
+        android:background="#072e1d"
+        android:textColor="@android:color/white"
         android:textAlignment="center"
         android:id="@+id/tv_event"
         android:layout_width="match_parent"
         android:layout_gravity="center_vertical"
         android:gravity="center"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:fontFamily="@font/chawp_italic"
+        android:textSize="25dp"
+        android:padding="10dp"
+        />
 
 </LinearLayout>
