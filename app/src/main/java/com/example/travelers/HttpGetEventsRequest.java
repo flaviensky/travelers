@@ -75,13 +75,10 @@ public class HttpGetEventsRequest extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-        mOnRequestsCompleted.getEvents(s);
         eventsList = new ArrayList<>();
-        
+
         try{
             JSONArray jsonArray = new JSONArray(s);
-
-
 
             for(int i = 0; i < jsonArray.length(); i++ ){
 
@@ -98,5 +95,8 @@ public class HttpGetEventsRequest extends AsyncTask<String, Void, String> {
         }catch (JSONException e){
             e.printStackTrace();
         }
+
+        mOnRequestsCompleted.getEvents(eventsList);
+
     }
 }

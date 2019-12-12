@@ -1,5 +1,7 @@
 package com.example.travelers;
 
+import java.util.List;
+
 interface OnRequestsCompleted {
-    void getEvents(String s);
+    void getEvents(List<Events> s);
 }

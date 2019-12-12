@@ -24,32 +24,11 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsHolder> {
     private List<Events> eventsList;
     private OnItemClicked onItemClicked;
 
-    EventsAdapter(Context context,OnItemClicked onItemClicked, String result){
+    EventsAdapter(Context context, OnItemClicked onItemClicked, List<Events> result){
 
         this.onItemClicked = onItemClicked;
 
-        eventsList = new ArrayList<>();
-
-        try{
-                JSONArray jsonArray = new JSONArray(result);
-
-
-
-            for(int i = 0; i < jsonArray.length(); i++ ){
-
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-
-                JSONObject fields = jsonObject.getJSONObject("fields");
-
-                eventsList.add(new Events(
-                        fields.getString("id"),
-                        fields.getString("title"),
-                        fields.getString("category"),
-                        fields.getString("cover_url")));
-            }
-        }catch (JSONException e){
-            e.printStackTrace();
-        }
+        eventsList = result;
 
 
         final EventsDao eventsDao = AppDatabase.getInstance(context).getEventsDao();

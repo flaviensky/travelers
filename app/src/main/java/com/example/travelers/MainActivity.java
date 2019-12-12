@@ -9,6 +9,9 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.io.Serializable;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
@@ -21,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String result = getIntent().getStringExtra("KEY");
+        List<Events> eventsList = (List<Events>) getIntent().getSerializableExtra("KEY");
 
         Bundle bundle = new Bundle();
-        bundle.putString("DATA_MAIN_FRAGMENT", result);
+        bundle.putSerializable("DATA_MAIN_FRAGMENT", (Serializable) eventsList);
         listFragment = new ListFragment();
         listFragment.setArguments(bundle);
         loadFragment(listFragment);
