@@ -3,16 +3,13 @@ package com.example.travelers;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity implements OnItemClicked{
+public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
 
@@ -30,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements OnItemClicked{
         bundle.putString("DATA_MAIN_FRAGMENT", result);
         listFragment = new ListFragment();
         listFragment.setArguments(bundle);
+        loadFragment(listFragment);
 
         profileFragment= new ProfileFragment();
 
@@ -49,18 +47,6 @@ public class MainActivity extends AppCompatActivity implements OnItemClicked{
                 return false;
             }
         });
-
-        RecyclerView recyclerView = findViewById(R.id.rv_events);
-
-        EventsAdapter eventsAdapter = new EventsAdapter(this, result);
-
-        LinearLayoutManager linearLayoutManager =
-                new LinearLayoutManager(
-                        getApplicationContext(),
-                        LinearLayoutManager.VERTICAL,
-                        false);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(eventsAdapter);
     }
 
     private void loadFragment(Fragment fragment) {
@@ -71,11 +57,4 @@ public class MainActivity extends AppCompatActivity implements OnItemClicked{
                 .commit();
     }
 
-    @Override
-    public void onItemClicked(Events event) {
-        Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
-        intent.putExtra("EVENT", event);
-        startActivity(intent);
-        //Toast.makeText(getApplicationContext(), event.getTitle() , Toast.LENGTH_SHORT).show();
-    }
 }
