@@ -90,7 +90,10 @@ public class HttpGetEventsRequest extends AsyncTask<String, Void, String> {
                         fields.getString("id"),
                         fields.getString("title"),
                         fields.getString("category"),
-                        fields.getString("cover_url")));
+                        fields.getString("cover_url"),
+                        fields.getString("date_start"),
+                        fields.getString("date_end"),
+                        fields.getString("description")));
             }
         }catch (JSONException e){
             e.printStackTrace();

@@ -21,20 +21,45 @@
         app:pressedTranslationZ="0dp"
         app:srcCompat="?attr/actionModeCloseDrawable" />
 
+    <ImageView
+        android:id="@+id/iv_details_cover"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:tint="#4D000000" />
+
     <TextView
         android:id="@+id/tv_details_title"
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        />
+        android:layout_alignParentTop="true"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/chawp_italic"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:layout_marginTop="125dp"/>
 
     <TextView
-        android:id="@+id/tv_details_category"
+        android:id="@+id/tv_details_description_title"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_details_cover"
+        android:layout_centerHorizontal="true"
+        android:text="Description de l'évènement:"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_details_description"
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_details_title"
-        android:gravity="center"/>
+        android:padding="20dp"
+        android:layout_below="@+id/tv_details_description_title"
+        />
 
 </RelativeLayout>
