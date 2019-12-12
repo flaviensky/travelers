@@ -4,25 +4,24 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="20sp"
-    android:padding="1sp"
-    android:background="@android:color/black">
-
+    android:layout_margin="50sp"
+    android:paddingTop="100sp"
+    android:background="@drawable/craft_paper_background"
+    >
 
 
     <ImageView
         android:id="@+id/iv_cover"
-        android:background="@android:color/white"
-        android:src="@drawable/ic_launcher_background"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_gravity="center_horizontal"
-        android:paddingBottom="25sp"
-        />
+        android:background="@android:color/white"
+        android:src="@drawable/ic_launcher_background"
+        android:tint="#4A303030" />
 
     <TextView
-        android:background="@android:color/white"
-        android:textSize="25sp"
+        android:background="@drawable/craft_paper_background_bottom"
+        android:paddingTop="30sp"
         android:textStyle="italic"
         android:text="TextPreview_1"
         android:textColor="@android:color/black"
@@ -32,12 +31,14 @@
         android:layout_gravity="center_vertical"
         android:gravity="center"
         android:layout_height="wrap_content"
-        android:paddingBottom="20sp"/>
+        android:textSize="40sp"
+        android:fontFamily="@font/chawp_italic"/>
 
     <TextView
         android:text="aze"
-        android:textSize="25sp"
-        android:background="@android:color/white"
+        android:textSize="40sp"
+        android:fontFamily="@font/chawp_italic"
+        android:background="#C5AC87"
         android:textStyle="italic"
         android:textColor="@android:color/black"
         android:textAlignment="center"
@@ -49,8 +50,9 @@
         android:paddingBottom="20sp"/>
 
     <TextView
-        android:textSize="25sp"
-        android:background="@android:color/white"
+        android:textSize="40sp"
+        android:fontFamily="@font/chawp_italic"
+        android:background="#C5AC87"
         android:textStyle="italic"
         android:text="TextPreview_2"
         android:textColor="@android:color/black"
@@ -64,8 +66,9 @@
 
     <TextView
         android:text="test"
-        android:textSize="25sp"
-        android:background="@android:color/white"
+        android:textSize="40sp"
+        android:fontFamily="@font/chawp_italic"
+        android:background="#C5AC87"
         android:textStyle="italic"
         android:textColor="@android:color/black"
         android:textAlignment="center"
@@ -78,8 +81,9 @@
 
     <TextView
         android:text="test"
-        android:textSize="25sp"
-        android:background="@android:color/white"
+        android:textSize="40sp"
+        android:fontFamily="@font/chawp_italic"
+        android:background="#C5AC87"
         android:textStyle="italic"
         android:textColor="@android:color/black"
         android:textAlignment="center"

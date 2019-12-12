@@ -24,7 +24,7 @@ public class AppUtils {
                 "15/08/1945",
                 "alain.juppe@gmail.com",
                 "+33 6 01 02 03 04",
-                "https://www.bordeaux.fr/images/ebx/fr/eluCM/1730/format4/cJUPPE_1.jpg"));
+                "https://resize-europe1.lanmedia.fr/r/620,310,FFFFFF,center-middle/img/var/europe1/storage/images/europe1/dossiers/alain-juppe/9880354-5-fre-FR/Alain-Juppe.jpg"));
 
         return userList;
     }
