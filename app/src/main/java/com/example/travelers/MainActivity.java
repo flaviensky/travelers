@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -17,12 +16,22 @@ public class MainActivity extends AppCompatActivity implements OnItemClicked{
 
     private BottomNavigationView bottomNavigationView;
 
+    private ListFragment listFragment;
+    private ProfileFragment profileFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        String result = getIntent().getStringExtra("KEY");
 
+        Bundle bundle = new Bundle();
+        bundle.putString("DATA_MAIN_FRAGMENT", result);
+        listFragment = new ListFragment();
+        listFragment.setArguments(bundle);
+
+        profileFragment= new ProfileFragment();
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -30,18 +39,16 @@ public class MainActivity extends AppCompatActivity implements OnItemClicked{
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.item1:
-                        loadFragment(new ListFragment());
+                        loadFragment(listFragment);
                         return true;
 
                     case R.id.item2:
-                        loadFragment(new ProfileFragment());
+                        loadFragment(profileFragment);
                         return true;
                 }
                 return false;
             }
         });
-
-        String result = getIntent().getStringExtra("KEY");
 
         RecyclerView recyclerView = findViewById(R.id.rv_events);
 
@@ -56,16 +63,12 @@ public class MainActivity extends AppCompatActivity implements OnItemClicked{
         recyclerView.setAdapter(eventsAdapter);
     }
 
-    private boolean loadFragment(Fragment fragment) {
+    private void loadFragment(Fragment fragment) {
         //switching fragment
-        if (fragment != null) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.frame_container, fragment)
-                    .commit();
-            return true;
-        }
-        return false;
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.frame_container, fragment)
+                .commit();
     }
 
     @Override

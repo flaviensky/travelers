@@ -48,11 +48,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsHolder> {
         }catch (JSONException e){
             e.printStackTrace();
         }
-
-
-        for (Events ev: events) {
-            Log.i(TAG, ev.getTitle());
-        }
     }
 
     @NonNull
