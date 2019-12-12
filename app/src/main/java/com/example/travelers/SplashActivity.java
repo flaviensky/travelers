@@ -28,7 +28,7 @@ public class SplashActivity extends AppCompatActivity implements OnRequestsCompl
                 }
 
             }
-        }, 3000);
+        }, 300);
     }
 
     @Override
