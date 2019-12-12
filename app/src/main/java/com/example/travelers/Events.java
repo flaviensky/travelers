@@ -1,12 +1,24 @@
 package com.example.travelers;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.io.Serializable;
 
+@Entity(tableName = "events")
 public class Events implements Serializable {
 
+@PrimaryKey
+@NonNull
+@ColumnInfo(name = "id")
 private String id;
+@ColumnInfo(name = "title")
 private String title;
+@ColumnInfo(name = "category")
 private String category;
+@ColumnInfo(name = "cover_url")
 private String cover_url;
 
     public Events(String id, String title, String category, String cover_url) {

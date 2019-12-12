@@ -30,7 +30,7 @@ public class ListFragment extends Fragment implements OnItemClicked{
 
         RecyclerView recyclerView = view.findViewById(R.id.rv_list_fragment);
 
-        EventsAdapter eventsAdapter = new EventsAdapter(this, result);
+        EventsAdapter eventsAdapter = new EventsAdapter(getActivity(), this, result);
 
         LinearLayoutManager linearLayoutManager =
                 new LinearLayoutManager(

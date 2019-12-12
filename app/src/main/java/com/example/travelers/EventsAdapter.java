@@ -1,5 +1,6 @@
 package com.example.travelers;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,14 +21,15 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsHolder> {
 
     private final static String TAG = EventsAdapter.class.getSimpleName();
 
-    private List<Events> events;
+    private List<Events> eventsList;
     private OnItemClicked onItemClicked;
 
-    EventsAdapter(OnItemClicked onItemClicked, String result){
+    EventsAdapter(Context context,OnItemClicked onItemClicked, String result){
 
         this.onItemClicked = onItemClicked;
 
-        events = new ArrayList<>();
+        eventsList = new ArrayList<>();
+
         try{
             JSONArray jsonArray = new JSONArray(result);
 
@@ -39,7 +41,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsHolder> {
 
                 JSONObject fields = jsonObject.getJSONObject("fields");
 
-                events.add(new Events(
+                eventsList.add(new Events(
                         fields.getString("id"),
                         fields.getString("title"),
                         fields.getString("category"),
@@ -48,6 +50,18 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsHolder> {
         }catch (JSONException e){
             e.printStackTrace();
         }
+
+
+        final EventsDao eventsDao = AppDatabase.getInstance(context).getEventsDao();
+
+        Thread thread = new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                eventsDao.insertAllEvents(eventsList);
+            }
+        };
+        thread.start();
     }
 
     @NonNull
@@ -60,13 +74,13 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull EventsHolder holder, int position) {
-        Events event = events.get(position);
+        Events event = eventsList.get(position);
         holder.populate(onItemClicked, event);
     }
 
     @Override
     public int getItemCount() {
-        return events.size();
+        return eventsList.size();
     }
 
 }
